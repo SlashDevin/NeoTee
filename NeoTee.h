@@ -64,6 +64,7 @@ public:
         if ((i == 0) || (minWritten > written))
           minWritten = written;
       }
+      return minWritten;
     }
 
   using Stream::write; // make the other overloads visible
