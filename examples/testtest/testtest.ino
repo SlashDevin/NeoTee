@@ -9,7 +9,9 @@ void setup()
   Serial.begin( 9600 );
   Serial.println( F("Enter any characters and they will be printed twice \n"
                     "  with one call to the NeoTee instance, like this:") );
-  twice.println( F("0123345789") );
+  twice.write( "0123345789", 10 );
+  Serial.println();
+  twice.print( 123.45 );
 }
 
 void loop()

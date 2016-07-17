@@ -58,8 +58,12 @@ public:
     
   virtual size_t write(uint8_t c)
     {
-      for (uint8_t i=0; i<NumStreams; i++)
-        Streams[i]->write( c );
+      size_t minWritten = 0;
+      for (uint8_t i=0; i<NumStreams; i++) {
+        size_t written = Streams[i]->write( c );
+        if (minWritten > written)
+          minWritten = written;
+      }
     }
 
   using Stream::write; // make the other overloads visible
