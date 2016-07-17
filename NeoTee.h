@@ -61,7 +61,7 @@ public:
       size_t minWritten = 0;
       for (uint8_t i=0; i<NumStreams; i++) {
         size_t written = Streams[i]->write( c );
-        if (minWritten > written)
+        if ((i == 0) || (minWritten > written))
           minWritten = written;
       }
     }
