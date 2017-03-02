@@ -1,6 +1,6 @@
 #include <NeoTee.h>
 
-Stream *justSerial[2] = { &Serial, &Serial };
+Print *justSerial[2] = { &Serial, &Serial };
 
 NeoTee twice( justSerial, sizeof(justSerial)/sizeof(justSerial[0]) );
 
