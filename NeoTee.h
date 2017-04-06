@@ -36,22 +36,22 @@
 
 class NeoTee : public Print
 {
-  Print  **Streams;
-  uint8_t  NumStreams;
+  Print  **_Streams;
+  uint8_t  _NumStreams;
 
 public:
 
   NeoTee( Print **streams, uint8_t numStreams )
     {
-      Streams    = streams;
-      NumStreams = numStreams;
+      _Streams    = streams;
+      _NumStreams = numStreams;
     }
 
   virtual size_t write(uint8_t c)
     {
       size_t minWritten = 0;
-      for (uint8_t i=0; i<NumStreams; i++) {
-        size_t written = Streams[i]->write( c );
+      for (uint8_t i=0; i<_NumStreams; i++) {
+        size_t written = _Streams[i]->write( c );
         if ((i == 0) || (minWritten > written))
           minWritten = written;
       }
@@ -60,6 +60,11 @@ public:
 
   using Print::write; // make the other overloads visible
 
+  Print **Streams() const { return _Streams; };
+  
+  uint8_t NumStreams() const { return _NumStreams; };
+  void NumStreams( uint8_t numStreams ) { _NumStreams = numStreams; };
+     // CAUTION: do not set numStreams longer than the original array!
 };
 
 #endif
