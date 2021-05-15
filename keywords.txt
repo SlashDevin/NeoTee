@@ -1,0 +1,23 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+NeoTee	KEYWORD1
+NeoTeeStream	KEYWORD1
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+NeoTeeStream	KEYWORD2
+NeoTee	KEYWORD2
+NumStreams	KEYWORD2
+Streams	KEYWORD2
+
+######################################
+# Constants (LITERAL1)
+######################################
